@@ -1,3 +1,13 @@
+# Unity backup build folders
+*_BackUpThisFolder_ButDontShipItWithYourGame/
+
+# Android builds
+*.apk
+*.aab
+
+# Keystore
+*.keystore
+*.jks
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
