@@ -1,0 +1,23 @@
+# ninja log v5
+0	1316	1769958688993478624	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c1f795699f99ee4b
+1316	1417	1769958689094445458	/Users/archa/HandCricket/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6j585e2p/obj/arm64-v8a/libgame.so	49ca0389f43708fa
+0	1213	1769958688890056583	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	e2bc722664c874f1
+1	1167	1769958688844945666	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	db1715eb7fe6f7db
+1	1085	1769958688760750166	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	68d29a4e18c5acbf
+0	1076	1769958688749061458	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	6db82f198531b26a
+0	1034	1769958688712369458	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	b929ead58153aa3c
+0	932	1769958688601706166	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	abf32608b1c3c20a
+299	583	1769958688238103249	/Users/archa/HandCricket/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6j585e2p/obj/arm64-v8a/libswappywrapper.so	a2176a4c9af29fdd
+1	1071	1769958688742574499	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	764435b11044de01
+1	298	1769958687965694041	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	d789c556973ed995
+9	865	1770837947030308708	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	d789c556973ed995
+866	1355	1770837947485564999	/Users/archa/HandCricket/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6j585e2p/obj/arm64-v8a/libswappywrapper.so	a2176a4c9af29fdd
+5	2432	1770837948595411458	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	b929ead58153aa3c
+5	2577	1770837948741119916	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	abf32608b1c3c20a
+6	2593	1770837948755025291	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	68d29a4e18c5acbf
+6	2644	1770837948805670708	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	764435b11044de01
+5	2811	1770837948974709374	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	6db82f198531b26a
+7	2901	1770837949064374499	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	db1715eb7fe6f7db
+6	3172	1770837949332619666	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	e2bc722664c874f1
+4	3383	1770837949545680374	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c1f795699f99ee4b
+3383	3636	1770837949801422499	/Users/archa/HandCricket/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6j585e2p/obj/arm64-v8a/libgame.so	49ca0389f43708fa
