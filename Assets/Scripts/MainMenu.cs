@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
+    public GameObject stats;
+    public GameObject mainmenu;
     public void PlayGame()
     {
         SceneManager.LoadScene("ModeSelection");
@@ -18,4 +20,5 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
 }

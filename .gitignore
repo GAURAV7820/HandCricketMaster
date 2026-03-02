@@ -1,13 +1,6 @@
-# Unity backup build folders
-*_BackUpThisFolder_ButDontShipItWithYourGame/
-
-# Android builds
-*.apk
-*.aab
-
-# Keystore
-*.keystore
-*.jks
+# =========================
+# Unity Generated Folders
+# =========================
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -15,7 +8,37 @@
 [Bb]uilds/
 [Ll]ogs/
 UserSettings/
+MemoryCaptures/
 
+# =========================
+# Unity Android Builds
+# =========================
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# Unity Auto Build Backup
+*_BackUpThisFolder_ButDontShipItWithYourGame/
+
+# =========================
+# macOS Junk
+# =========================
+.DS_Store
+
+# =========================
+# VS Code / Editor History
+# =========================
+.history/
+
+# =========================
+# Unity Temp Build Folder
+# =========================
+.utmp/
+
+# =========================
+# Visual Studio Files
+# =========================
 *.csproj
 *.unityproj
 *.sln
@@ -27,4 +50,3 @@ UserSettings/
 *.mdb
 *.opendb
 *.VC.db
-

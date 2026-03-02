@@ -70,10 +70,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         mode = PlayerPrefs.GetInt("GameMode", 0);
+        PlayerPrefs.DeleteKey("GameMode");
         maxWickets = PlayerPrefs.GetInt("MaxWickets", 5);
 
         highScore = PlayerPrefs.GetInt("HighScore_" + maxWickets, 0);
-
+        Debug.Log("GameMode in GameScene = " + mode);
         ResetGame();
 
         if (PlayerPrefs.GetInt("HintShown", 0) == 0)
@@ -129,8 +130,13 @@ public class GameManager : MonoBehaviour
         turnText.text = "CHOOSE HEADS OR TAILS";
     }
 
-    public void ChooseHeads() { playerChoseHeads = true; ResolveToss(); }
-    public void ChooseTails() { playerChoseHeads = false; ResolveToss(); }
+    public void ChooseHeads() { 
+         Debug.Log("Heads Clicked");
+    playerChoseHeads = true; 
+    ResolveToss();  }
+    public void ChooseTails() { 
+         Debug.Log("Tails Clicked");
+        playerChoseHeads = false; ResolveToss(); }
 
     void ResolveToss()
     {
@@ -290,51 +296,81 @@ public class GameManager : MonoBehaviour
 
     // ================= RESULT =================
     void EndMatch()
+{
+    if (gameOver) return;
+    gameOver = true;
+
+    string msg = "";
+
+    if (!isFullMatch)
     {
-        if (gameOver) return;
-        gameOver = true;
-
-        string msg = "";
-
-        if (!isFullMatch)
+        if (playerScore > highScore)
         {
-            if (playerScore > highScore)
-            {
-                highScore = playerScore;
-                PlayerPrefs.SetInt("HighScore_" + maxWickets, highScore);
-                PlayerPrefs.Save();
+            highScore = playerScore;
+            PlayerPrefs.SetInt("HighScore_" + maxWickets, highScore);
 
-                msg = "NEW HIGH SCORE!\n" + playerScore;
-                audioSource.PlayOneShot(Gamewin);
-            }
-            else
-                msg = "MATCH OVER\nYOUR SCORE: " + playerScore;
+            msg = "NEW HIGH SCORE!\n" + playerScore;
+            audioSource.PlayOneShot(Gamewin);
         }
         else
         {
-            if (playerScore > computerScore)
-            {
-                msg = playerBatting
-                    ? "CONGRATULATIONS!\nYOU WON BY " + (maxWickets - wickets) + " WICKETS"
-                    : "CONGRATULATIONS!\nYOU WON BY " + (playerScore - computerScore) + " RUNS";
-
-                audioSource.PlayOneShot(Gamewin);
-            }
-            else if (computerScore > playerScore)
-            {
-                msg = playerBatting
-                    ? "YOU LOST BY " + (computerScore - playerScore) + " RUNS\nTRY AGAIN!"
-                    : "YOU LOST BY " + (maxWickets - wickets) + " WICKETS\nTRY AGAIN!";
-
-                audioSource.PlayOneShot(Gameloose);
-            }
-            else msg = "MATCH DRAW";
+            msg = "MATCH OVER\nYOUR SCORE: " + playerScore;
         }
+    }
+    else
+    {
+        if (playerScore > computerScore)
+        {
+            msg = playerBatting
+                ? "CONGRATULATIONS!\nYOU WON BY " + (maxWickets - wickets) + " WICKETS"
+                : "CONGRATULATIONS!\nYOU WON BY " + (playerScore - computerScore) + " RUNS";
 
-        ShowPopup(msg);
-        restartButton.SetActive(true);
+            audioSource.PlayOneShot(Gamewin);
+
+            PlayerPrefs.SetInt("wins",
+                PlayerPrefs.GetInt("wins", 0) + 1);
+        }
+        else if (computerScore > playerScore)
+        {
+            msg = playerBatting
+                ? "YOU LOST BY " + (computerScore - playerScore) + " RUNS\nTRY AGAIN!"
+                : "YOU LOST BY " + (maxWickets - wickets) + " WICKETS\nTRY AGAIN!";
+
+            audioSource.PlayOneShot(Gameloose);
+
+            PlayerPrefs.SetInt("loss",
+                PlayerPrefs.GetInt("loss", 0) + 1);
+        }
+        else
+        {
+            msg = "MATCH DRAW";
+        }
     }
 
+    // ================= STATS UPDATE =================
+
+    PlayerPrefs.SetInt("totalruns",
+        PlayerPrefs.GetInt("totalruns", 0) + playerScore);
+
+    int savedHighScore = PlayerPrefs.GetInt("highscore", 0);
+
+    if (playerScore > savedHighScore)
+    {
+        PlayerPrefs.SetInt("highscore", playerScore);
+    }
+
+    PlayerPrefs.SetInt("TotalMatches",
+        PlayerPrefs.GetInt("TotalMatches", 0) + 1);
+
+    Debug.Log("TotalMatches = " + PlayerPrefs.GetInt("TotalMatches", 0));
+    Debug.Log("Wins = " + PlayerPrefs.GetInt("wins", 0));
+    Debug.Log("TotalRuns = " + PlayerPrefs.GetInt("totalruns", 0));
+
+    PlayerPrefs.Save();
+
+    ShowPopup(msg);
+    restartButton.SetActive(true);
+}
     // ================= POPUP =================
     void ShowPopup(string message)
     {
