@@ -1,3 +1,5 @@
+PlayStore link: https://play.google.com/store/apps/details?id=com.teamkalki.handcricket&hl=en_IN
+
 🏏 Hand Cricket Master
 
 Relive your childhood. Master the game. Rule the pitch.
